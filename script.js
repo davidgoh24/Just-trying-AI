@@ -27,7 +27,7 @@ function sendMessage() {
     appendMessage("AI", aiResponse, "ai-message");
   }, 1000);
 
-  // Clear input
+  // Clear input field
   document.getElementById("user-input").value = "";
 }
 
@@ -41,11 +41,15 @@ function appendMessage(sender, message, className) {
 
   // Auto-scroll to the bottom of the chat box
   chatBox.scrollTop = chatBox.scrollHeight;
+
+  // Debugging log for confirmation
+  console.log(`Message appended: ${sender}: ${message}`);
 }
 
 // Function to toggle between light and dark themes
 function toggleTheme() {
   document.body.classList.toggle("dark-theme");
+  console.log("Theme toggled:", document.body.classList.contains("dark-theme") ? "Dark" : "Light");
 }
 
 // Function to generate a simulated AI response
