@@ -1,4 +1,4 @@
-/* Default light theme styles */
+/* General Body Styling */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
@@ -8,34 +8,95 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+/* Dark Theme Styling */
+body.dark-theme {
+  background-color: #333;
+  color: #fff;
+}
+
+/* App Container */
 #app {
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 400px;
   padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+body.dark-theme #app {
+  background: #444;
+  color: #fff;
+}
+
+/* Header Styling */
 h1 {
   text-align: center;
   color: #333;
+  margin: 0 0 20px;
 }
 
+body.dark-theme h1 {
+  color: #ddd;
+}
+
+/* Chat Box */
 #chat-box {
   border: 1px solid #ddd;
   padding: 10px;
   height: 300px;
   overflow-y: auto;
   margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
+body.dark-theme #chat-box {
+  background-color: #555;
+  border-color: #666;
+}
+
+/* User and AI Messages */
+.chat-message {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+.user-message {
+  background-color: #d0ebff;
+  color: #0056b3;
+  align-self: flex-end;
+}
+
+.ai-message {
+  background-color: #e9ffe9;
+  color: #007b00;
+  align-self: flex-start;
+}
+
+/* Input Field */
 #user-input {
   width: calc(100% - 60px);
   padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
+body.dark-theme #user-input {
+  background-color: #666;
+  color: #fff;
+  border-color: #777;
+}
+
+/* Send Button */
 #send-btn {
   width: 50px;
   padding: 10px;
@@ -44,43 +105,45 @@ h1 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-#theme-toggle {
-  margin-top: 10px;
-  width: 100%;
-  padding: 10px;
-  background-color: #555;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* Dark theme styles */
-body.dark-theme {
-  background-color: #333;
-  color: white;
-}
-
-body.dark-theme #app {
-  background: #444;
-}
-
-body.dark-theme #chat-box {
-  background-color: #555;
-  border-color: #777;
-}
-
-body.dark-theme #user-input {
-  background-color: #666;
-  color: white;
+#send-btn:hover {
+  background-color: #0056b3;
 }
 
 body.dark-theme #send-btn {
-  background-color: #008cba;
+  background-color: #0099ff;
+}
+
+body.dark-theme #send-btn:hover {
+  background-color: #007acc;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  display: block;
+  margin: 10px auto 0;
+  padding: 10px;
+  background-color: #ffcc00;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle:hover {
+  background-color: #ffbb00;
 }
 
 body.dark-theme #theme-toggle {
-  background-color: #222;
+  background-color: #ffa500;
+  color: #222;
+}
+
+body.dark-theme #theme-toggle:hover {
+  background-color: #ff9200;
 }
