@@ -1,16 +1,19 @@
+// Add event listener for the "Send" button
 document.getElementById("send-btn").addEventListener("click", sendMessage);
 
-document.getElementById("user-input").addEventListener("keypress", (event) => {
+// Add event listener for pressing "Enter" in the input field
+document.getElementById("user-input").addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     sendMessage();
   }
 });
 
+// Function to handle sending a message
 function sendMessage() {
-  const userInput = document.getElementById("user-input").value;
+  const userInput = document.getElementById("user-input").value.trim();
   const chatBox = document.getElementById("chat-box");
 
-  if (userInput.trim() === "") return;
+  if (userInput === "") return; // Prevent empty messages
 
   // Append user input to chat
   const userMessage = document.createElement("div");
@@ -27,6 +30,6 @@ function sendMessage() {
   // Clear input
   document.getElementById("user-input").value = "";
 
-  // Auto-scroll
+  // Auto-scroll to the bottom of the chat box
   chatBox.scrollTop = chatBox.scrollHeight;
 }
