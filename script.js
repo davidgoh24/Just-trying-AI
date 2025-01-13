@@ -21,18 +21,6 @@ function sendMessage() {
   // Append user input to chat
   appendMessage("User", userInput, "user-message");
 
-  // Simulate AI response with a delay
-  setTimeout(() => {
-    const aiResponses = [
-      "I'm here to help!",
-      "Can you clarify that?",
-      "That's interesting. Tell me more!",
-      "I'm not sure I understand. Could you explain?",
-    ];
-    const aiReply = aiResponses[Math.floor(Math.random() * aiResponses.length)];
-    appendMessage("AI", aiReply, "ai-message");
-  }, 1000);
-
   // Clear input
   document.getElementById("user-input").value = "";
 }
