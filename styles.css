@@ -1,3 +1,4 @@
+/* Default light theme styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
@@ -43,4 +44,43 @@ h1 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+#theme-toggle {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Dark theme styles */
+body.dark-theme {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-theme #app {
+  background: #444;
+}
+
+body.dark-theme #chat-box {
+  background-color: #555;
+  border-color: #777;
+}
+
+body.dark-theme #user-input {
+  background-color: #666;
+  color: white;
+}
+
+body.dark-theme #send-btn {
+  background-color: #008cba;
+}
+
+body.dark-theme #theme-toggle {
+  background-color: #222;
 }

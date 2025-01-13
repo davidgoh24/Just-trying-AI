@@ -8,6 +8,9 @@ document.getElementById("user-input").addEventListener("keydown", (event) => {
   }
 });
 
+// Add event listener for the theme toggle button
+document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
+
 // Function to handle sending a message
 function sendMessage() {
   const userInput = document.getElementById("user-input").value.trim();
@@ -16,20 +19,46 @@ function sendMessage() {
   if (userInput === "") return; // Prevent empty messages
 
   // Append user input to chat
-  const userMessage = document.createElement("div");
-  userMessage.textContent = User: ${userInput};
-  userMessage.style.color = "blue";
-  chatBox.appendChild(userMessage);
+  appendMessage("User", userInput, "user-message");
 
-  // Simulate AI response
-  const aiMessage = document.createElement("div");
-  aiMessage.textContent = AI: I'm responding to "${userInput}";
-  aiMessage.style.color = "green";
-  chatBox.appendChild(aiMessage);
+  // Simulate AI response with a delay
+  setTimeout(() => {
+    const aiResponse = generateAIResponse(userInput);
+    appendMessage("AI", aiResponse, "ai-message");
+  }, 1000);
 
   // Clear input
   document.getElementById("user-input").value = "";
+}
+
+// Function to append messages to the chat box
+function appendMessage(sender, message, className) {
+  const chatBox = document.getElementById("chat-box");
+  const messageDiv = document.createElement("div");
+  messageDiv.className = `chat-message ${className}`;
+  messageDiv.textContent = `${sender}: ${message}`;
+  chatBox.appendChild(messageDiv);
 
   // Auto-scroll to the bottom of the chat box
   chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Function to toggle between light and dark themes
+function toggleTheme() {
+  document.body.classList.toggle("dark-theme");
+}
+
+// Function to generate a simulated AI response
+function generateAIResponse(userInput) {
+  const responses = [
+    "That's interesting! Tell me more.",
+    "I'm here to help. Can you clarify?",
+    "What do you mean by that?",
+    "Hmm, let me think...",
+    "That sounds intriguing!",
+    `You said: "${userInput}". Let me process that.`,
+  ];
+
+  // Return a random response
+  return responses[Math.floor(Math.random() * responses.length)];
 }
