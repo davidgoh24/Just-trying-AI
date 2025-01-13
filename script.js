@@ -19,10 +19,22 @@ function sendMessage() {
   if (userInput === "") return; // Prevent empty messages
 
   // Append user input to chat
-  appendMessage("User", userInput, "user-message");
+  const userMessage = document.createElement("div");
+  userMessage.textContent = User: ${userInput};
+  userMessage.style.color = "blue";
+  chatBox.appendChild(userMessage);
+
+  // Simulate AI response
+  const aiMessage = document.createElement("div");
+  aiMessage.textContent = AI: I'm responding to "${userInput}";
+  aiMessage.style.color = "green";
+  chatBox.appendChild(aiMessage);
 
   // Clear input
   document.getElementById("user-input").value = "";
+
+  // Auto-scroll to the bottom of the chat box
+  chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 // Function to append messages to the chat box
